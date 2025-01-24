@@ -20,6 +20,11 @@ def visualize(siatka, anim_frames):
                             (1, 0.5, 0)  # 7 - sąsiad (pomarańczowy)
                            ])
     norm = BoundaryNorm([0, 1, 2, 3, 4, 5, 6, 7], cmap.N)  # Przypisanie wartości do kolorów
+    #ax.grid(which="both", color="gray", linestyle="-", linewidth=0.5)
+    ax.set_xticks(np.arange(-0.5, siatka.shape[1], 1))
+    ax.set_yticks(np.arange(-0.5, siatka.shape[0], 1))
+    ax.set_xticklabels(np.arange(0, siatka.shape[1] + 1))
+    ax.set_yticklabels(np.arange(0, siatka.shape[0] + 1))
     im = ax.imshow(siatka, cmap=cmap, norm=norm)
 
     def update(frame_idx):
